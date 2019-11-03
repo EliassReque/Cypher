@@ -35,12 +35,20 @@ public class CesarGUI extends javax.swing.JFrame {
         //Controlador boton fuerza bruta Cesar
         btnFuerza.setActionCommand(CommandName.FUERZABRUTA_BTN.toString());
         btnFuerza.addActionListener(controlador);
+        
         //Controlador boton codificar usando Algoritmo AES-ECB
         btnCodificarEcb.setActionCommand(CommandName.CODIFICARECB_BTN.toString());
         btnCodificarEcb.addActionListener(controlador);
         //Controlador boton descodificar usando Algoritmo AES-ECB
         btnDescodificarEcb.setActionCommand(CommandName.DECODIFICARECB_BTN.toString());
         btnDescodificarEcb.addActionListener(controlador);
+        
+        //Controlador boton codificar usando Algoritmo AES-CBC
+        btnCodificarCbc.setActionCommand(CommandName.CODIFICARCBC_BTN.toString());
+        btnCodificarCbc.addActionListener(controlador);
+        //Controlador boton descodificar usando Algoritmo AES-CBC
+        btnDecodificarCbc.setActionCommand(CommandName.DECODIFICARCBC_BTN.toString());
+        btnDecodificarCbc.addActionListener(controlador);
         
     }
 
@@ -86,6 +94,8 @@ public class CesarGUI extends javax.swing.JFrame {
         btnFuerza = new javax.swing.JButton();
         btnCodificarEcb = new javax.swing.JButton();
         btnDescodificarEcb = new javax.swing.JButton();
+        btnCodificarCbc = new javax.swing.JButton();
+        btnDecodificarCbc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +127,10 @@ public class CesarGUI extends javax.swing.JFrame {
 
         btnDescodificarEcb.setText("Descodificar ECB");
 
+        btnCodificarCbc.setText("Codificar CBC");
+
+        btnDecodificarCbc.setText("Descodificar CBC");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,12 +159,15 @@ public class CesarGUI extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(btnCodificarEcb)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnDescodificarEcb))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnDecodificarCbc)
+                                    .addComponent(btnDescodificarEcb)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCodificarCbc))))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,11 +190,15 @@ public class CesarGUI extends javax.swing.JFrame {
                     .addComponent(btnCodificar)
                     .addComponent(btnDecodificar)
                     .addComponent(btnFuerza))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCodificarEcb)
                     .addComponent(btnDescodificarEcb))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCodificarCbc)
+                    .addComponent(btnDecodificarCbc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,8 +214,10 @@ public class CesarGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCodificar;
+    private javax.swing.JButton btnCodificarCbc;
     private javax.swing.JButton btnCodificarEcb;
     private javax.swing.JButton btnDecodificar;
+    private javax.swing.JButton btnDecodificarCbc;
     private javax.swing.JButton btnDescodificarEcb;
     private javax.swing.JButton btnFuerza;
     private javax.swing.JSpinner jClave;
